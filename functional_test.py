@@ -10,7 +10,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser = webdriver.Chrome()
         self.url = 'http://127.0.0.1:8000'
         self.url_cv = 'http://127.0.0.1:8000/cv'
-        self.url_cv_new = 'http://127.0.0.1:8000/cv/new_cv'
+        self.url_cv_new = 'http://127.0.0.1:8000/cv/cv_new'
 
 
 
