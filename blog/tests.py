@@ -36,8 +36,4 @@ class CVTest(TestCase):
     def test_model_test_skills(self):
         self.assertEqual(self.skills.__str__(), self.skills.text)                        
 
-    def test_guest_add_cv(self):
-        response = self.client.post(self.url_add)
-        # User should be redirect to login page
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'], '/accounts/login/?next=/cv/cv_new/')
+    
