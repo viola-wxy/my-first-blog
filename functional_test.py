@@ -47,52 +47,9 @@ class NewVisitorTest(unittest.TestCase):
         password.send_keys('ariescoco123')
         password.send_keys(Keys.ENTER)
 
-        #add to info
-        textarea = self.browser.find_element_by_id('id_text')
-        textarea.send_keys('test info')
-        addinfo = self.browser.find_element_by_name('info')
-        addinfo.click()
-        # time.sleep(10)
-
-        #add to education
-        self.browser.get(self.url_cv_new)
-        textarea1 = self.browser.find_element_by_id('id_text')
-        textarea1.send_keys('test education')
-        addinfo = self.browser.find_element_by_name('education')
-        addinfo.click()
-
-        #add to work
-        self.browser.get(self.url_cv_new)
-        textarea = self.browser.find_element_by_id('id_text')
         
-        textarea.send_keys('test work')
-        addinfo = self.browser.find_element_by_name('work')
-        addinfo.click()
-
-        #add to skills
-        self.browser.get(self.url_cv_new)
-        textarea = self.browser.find_element_by_id('id_text')
-        
-        textarea.send_keys('test skills')
-        addinfo = self.browser.find_element_by_name('skills')
-        addinfo.click()
-
-        #add to hobby
-        self.browser.get(self.url_cv_new)
-        textarea = self.browser.find_element_by_id('id_text')
-        
-        textarea.send_keys('test hobby')
-        addinfo = self.browser.find_element_by_name('hobby')
-        addinfo.click()
 
         time.sleep(10)
-
-        test_contexts = self.browser.find_elements_by_tag_name('p')
-        self.assertIn('test info',[test_context.get_attribute('textContent') for test_context in test_contexts])
-        self.assertIn('test education',[test_context.get_attribute('textContent') for test_context in test_contexts])
-        self.assertIn('test work',[test_context.get_attribute('textContent') for test_context in test_contexts])
-        self.assertIn('test skills',[test_context.get_attribute('textContent') for test_context in test_contexts])
-        self.assertIn('test hobby',[test_context.get_attribute('textContent') for test_context in test_contexts])
 
 
 if __name__  == '__main__':
