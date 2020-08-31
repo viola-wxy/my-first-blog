@@ -1,12 +1,36 @@
-{% extends 'blog/base.html' %}
-{% block content %}
+{% load static %}
+<html>
+    <head>
+        <title>Xinyu's blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Xinyu's Blog</a></h1>
+        </div>
+        <ul>
+            <li><a class="active" href="/">Blogs</a></li>
+            <li class="linkmenu"><a class="greylink" href="{% url 'cv' %}">CV page</a></li>
+            
+        </ul>
+        <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+            {% block content %}
     {% for post in posts %}
         <div class="post">
             <div class="date">
                 {{ post.published_date }}
             </div>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+            <!-- <p>{{ post.text|safe}}</p> -->
+            
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+            
         </div>
     {% endfor %}
-{% endblock %}
+    {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,3 +1,7 @@
+{% extends "blog/base.html" %}
+
+
+
 {% load static %}
 <html>
     <head>
@@ -30,8 +34,24 @@
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+                    {% block content %}
+
+                    <form method="post"  class="post-form" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" name="info" value="add to info" />
+                        <br>
+                        <input type="submit" name="education" value="add to education" />
+                        <br>
+                        <input type="submit" name="work" value="add to work" />
+                        <br>
+                        <input type="submit" name="skills" value="add to skills" />
+                        <br>
+                        <input type="submit" name="hobby" value="add to hobby" />
+                    </form>
+                    
+                    
+                    {% endblock %}
                 </div>
             </div>
         </div>
