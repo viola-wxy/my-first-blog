@@ -19,7 +19,7 @@ class CVTest(TestCase):
         self.skills = skills.objects.create(text = 'test skills')
 
         self.url = '/cv/'
-        self.url_add = '/cv/new_cv/'
+        self.url_add = '/cv/cv_new/'
 
     def test_model_test_info(self):
         self.assertEqual(self.info.__str__(), self.info.text)
